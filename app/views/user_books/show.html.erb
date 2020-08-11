@@ -1,2 +1,10 @@
-<h1>UserBooks#show</h1>
-<p>Find me in app/views/user_books/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= @user_book.book.title %></h1>
+      <p><%= @user_book.book.author %></p>
+      <h2>Neibor contact information</h2>
+      <p><%= @user.email %></p>
+    </div>
+  </div>
+</div>
