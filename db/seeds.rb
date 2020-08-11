@@ -28,7 +28,8 @@ isbns.each do |isbn|
   )
 end
 
-puts "#{isbns.count} books created."
+puts "#{Book.count} books created."
+
 puts "Cleaning users..."
 User.destroy_all
 
@@ -39,5 +40,24 @@ puts "Creating new users..."
     password: "password"
   )
 end
+
+puts "#{User.count} Users created."
+puts "Cleaning User Book DB..."
+UserBook.destroy_all
+
+puts "Creating example user books..."
+
+users = User.all
+books = Book.all
+users.each do |user|
+  rand(1..4).times do
+    UserBook.create!(
+      user: user,
+      book: books.sample
+    )
+  end
+end
+
+puts "#{UserBook.count} user books created."
 
 puts "Seed complete!"
