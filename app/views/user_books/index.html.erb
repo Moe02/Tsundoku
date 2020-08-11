@@ -1,6 +1,19 @@
-<h1>UserBooks#index</h1>
-<% @user_books.each do |user_book|%>
- <p>title: <%= user_book.title %></p>
- <p>author: <%= user_book.auther %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>UserBooks#index</h1>
+      <div class="cards">
+        <% @user_books.each do |user_book|%>
+          <div class="card-user-book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{user_book.cover})">
+            <p>title: <%= user_book.book.title %></p>
+            <p>author: <%= user_book.book.author %></p>
+            <h2><%= user_book.user.email %></h2>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
