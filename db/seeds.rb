@@ -11,8 +11,12 @@ require 'json'
 isbns = ['0451526538', '0345250761', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
 
 
+puts "Cleaning User Book DB..."
+UserBook.destroy_all
 puts "Cleaning book DB..."
 Book.destroy_all
+puts "Cleaning users..."
+User.destroy_all
 
 puts "Creating new books..."
 isbns.each do |isbn|
@@ -20,18 +24,22 @@ isbns.each do |isbn|
   book_raw_data = open(url).read
   book_raw_hash = JSON.parse(book_raw_data)
   book_hash = book_raw_hash["ISBN:#{isbn}"]
-  # book_hash["title"]
-  # book_hash["authors"].first["name"]
+  book_hash["cover"] ? cover = book_hash["cover"]["large"] : cover = ""
+  keywords = []
+  if book_hash["subjects"]
+    book_hash["subjects"].each do |hash|
+      keywords << hash["name"]
+    end
+  end
   Book.create!(
     title: book_hash["title"],
-    author: book_hash["authors"].first["name"]
+    author: book_hash["authors"].first["name"],
+    cover: cover,
+    keywords: keywords
   )
 end
 
 puts "#{Book.count} books created."
-
-puts "Cleaning users..."
-User.destroy_all
 
 puts "Creating new users..."
 5.times do
@@ -42,8 +50,6 @@ puts "Creating new users..."
 end
 
 puts "#{User.count} Users created."
-puts "Cleaning User Book DB..."
-UserBook.destroy_all
 
 puts "Creating example user books..."
 
