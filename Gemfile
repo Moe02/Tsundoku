@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 # Added
 
 gem 'devise'
-
+gem 'pundit'
 
 
 # Reduces boot times through caching; required in config/boot.rb
