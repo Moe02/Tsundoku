@@ -8,16 +8,36 @@
 require 'open-uri'
 require 'json'
 
-isbns = [0451526538, 0345250761, 1436126290, 0307386457, 8087830032, 0002008408, 0755392620, 1783527609, 0375420525, 9525904873, 0099528487]
+isbns = ['0451526538', '0345250761', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
 
 
+puts "Cleaning book DB..."
+Book.destroy_all
+
+puts "Creating new books..."
 isbns.each do |isbn|
   url = "https://openlibrary.org/api/books?bibkeys=ISBN:#{isbn}&format=json&jscmd=data"
   book_raw_data = open(url).read
   book_raw_hash = JSON.parse(book_raw_data)
   book_hash = book_raw_hash["ISBN:#{isbn}"]
+  # book_hash["title"]
+  # book_hash["authors"].first["name"]
   Book.create!(
-    title: book_hash["title"]
+    title: book_hash["title"],
     author: book_hash["authors"].first["name"]
   )
 end
+
+puts "#{isbns.count} books created."
+puts "Cleaning users..."
+User.destroy_all
+
+puts "Creating new users..."
+5.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "password"
+  )
+end
+
+puts "Seed complete!"
