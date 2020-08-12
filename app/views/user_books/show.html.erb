@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1><%= @user_book.book.title %></h1>
-      <p><%= @user_book.book.author %></p>
-      <h2>Neibor contact information</h2>
-      <p><%= @user.email %></p>
-      <p><%= link_to 'Back to list', user_books_path %></p>
+      <%# <div class="coverImg"><%= @user_book.book.cover %>
+      <div class="coverImg"><img src= "<%= @user_book.book.cover %>" alt="img" class="img-thumbnail"></div>
+      <div class="book-details">
+        <h1><%= @user_book.book.title %></h1>
+        <p><%= @user_book.book.author %></p>
+        <h2>Neibor contact information</h2>
+        <p><%= @user.email %></p>
+        <p><%= link_to 'Back to list', user_books_path %></p>
+      </div>
     </div>
   </div>
 </div>
