@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :user_books, only: [:index, :show] do
-    resources :users, only: [:show]
+  resources :user_books, only: [:index, :show]
   # do
   #   resources :user_books, only: [:index, :show]
   # do
