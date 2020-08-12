@@ -4,7 +4,7 @@
       <h1>UserBooks#index</h1>
       <div class="cards">
         <% @user_books.each do |user_book|%>
-          <div class="card-user-book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user_book.book.cover %>)">
+          <div class="card-user-book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user_book.book.cover ? user_book.book.cover : "app/assets/images/cover_default.jpg" %>)">
             <p>title: <%= link_to user_book.book.title, user_book_path(user_book) %></p>
             <p>author: <%= user_book.book.author %></p>
             <h2><%= user_book.user.email %></h2>
