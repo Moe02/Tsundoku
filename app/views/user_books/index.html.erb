@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>UserBooks#index</h1>
       <div class="cards">
         <% @user_books.each do |user_book|%>
-          <div class="card-user-book" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+          <div class="card-user-book" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url(
               <% if user_book.book.cover == "" %>
                 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg'
               <% else %>
                 <%= user_book.book.cover %>
               <% end %>
               )">
-            <p>title: <%= link_to user_book.book.title, user_book_path(user_book) %></p>
-            <p>author: <%= user_book.book.author %></p>
-            <h2><%= user_book.user.email %></h2>
+            <p><%= link_to user_book.book.title, user_book_path(user_book) %></p>
+            <p><%= user_book.book.author %></p>
+            <h2><%= user_book.user.username %></h2>
           </div>
         <% end %>
       </div>
