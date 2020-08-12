@@ -45,7 +45,8 @@ puts "Creating new users..."
 5.times do
   User.create!(
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    username: Faker::Name.first_name
   )
 end
 
