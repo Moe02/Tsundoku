@@ -3,9 +3,11 @@ class UserBooksController < ApplicationController
     @user_books = policy_scope(UserBook)
   end
 
-  # def show
-  #   @post = policy_scope(UserBook).find(params[:id])
-  # end
+  def show
+    @user_book = policy_scope(UserBook).find(params[:id])
+    @user = @user_book.user
+    authorize @user_book
+  end
 
   # def new
   # end
