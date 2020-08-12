@@ -1,7 +1,20 @@
 class UserBooksController < ApplicationController
   def index
-    @user_books = policy_scope(UserBook)
-    user_book_search
+    if params[:search].blank?
+      # this guy will be ordered by distance eventually
+      @user_books = policy_scope(UserBook)
+    else
+      books = Book.where("title ILIKE '%#{params[:search].downcase}%'")
+      # raise
+      @temp_user_books = policy_scope(UserBook)
+      @user_books = []
+      @temp_user_books.each do |book|
+        if books.include?(book)
+          @user_books << book
+        end
+      end
+    end
+    @user_books
   end
 
   def show
@@ -12,10 +25,12 @@ class UserBooksController < ApplicationController
 
   def user_book_search
     # recieves search data - through params?
-    search = params[:input]
-    if search
-      @user_books.where()
-    end
+    # if params[:search].blank?
+    #   # this guy will be ordered by distance eventually
+    #   @user_books
+    # else
+    #   @user_books = UserBook.where("title, author ILIKE %?%", params[:search].downcase)
+    # end
   end
   # def new
   # end
