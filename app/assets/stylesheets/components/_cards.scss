@@ -10,12 +10,20 @@
   height: 180px;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: $light-gray;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-user-book a {
+  color: $light-gray;
+  text-decoration: none;
+  &:hover {
+    color: $light-gray; opacity: 0.6;
+  }
 }
 
 // Smallest device
