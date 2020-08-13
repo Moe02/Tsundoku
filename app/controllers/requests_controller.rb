@@ -13,9 +13,19 @@ class RequestsController < ApplicationController
     end
   end
 
+  def update
+    @request = Request.find(params[:id])
+    authorize @request
+    if @request.update(request_params)
+      redirect_to dashboard_path, notice: "Status updated"
+    else
+      redirect_to dashboard_path, notice: "Status could not be updated"
+    end
+  end
+
   private
 
   def request_params
-    params.require(:request).permit(:start_date, :end_date)
+    params.require(:request).permit(:start_date, :end_date, :status)
   end
 end

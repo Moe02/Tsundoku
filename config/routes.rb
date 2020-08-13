@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :user_books, only: [:index, :show] do
     resources :requests, only: [:create]
   end
-
+  resources :requests, only: [:update]
   # do
   #   resources :user_books, only: [:index, :show]
   # do

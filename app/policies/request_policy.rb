@@ -8,4 +8,8 @@ class RequestPolicy < ApplicationPolicy
   def create?
     record.user_book.user != user
   end
+
+  def update?
+    record.user_book.user == user
+  end
 end
