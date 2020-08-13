@@ -31,7 +31,8 @@ isbns.each do |isbn|
       keywords << hash["name"]
     end
   end
-  # next unless cover.present?
+
+  next unless cover.present?
     Book.create!(
     title: book_hash["title"],
     author: book_hash["authors"].first["name"],

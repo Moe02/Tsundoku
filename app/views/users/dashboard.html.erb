@@ -1,44 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <%# <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> %>
-      <ul class="list-inline tabs-underlined">
-      <li>
-        <a href="#v-pills-received" class="tab-underlined active">Received</a>
-        <%# <a class="nav-link active" id="v-pills-received-tab" data-toggle="pill" href="#v-pills-received" role="tab" aria-controls="v-pills-received" aria-selected="true">Received</a> %>
-      </li>
-      <li>
-        <a href="#v-pills-made" class="tab-underlined">Made</a>
-        <%# <a class="nav-link" id="v-pills-made-tab" data-toggle="pill" href="#v-pills-made" role="tab" aria-controls="v-pills-made" aria-selected="false">Made</a> %>
-      </li>
-      <li>
-        <a href="#v-pills-active" class="tab-underlined">Conversations</a>
-        <%# <a class="nav-link" id="v-pills-active-tab" data-toggle="pill" href="#v-pills-active" role="tab" aria-controls="v-pills-active" aria-selected="false">Active</a> %>
-      <%# </div> %>
-      </li>
-      </ul>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab" aria-controls="nav-pending" aria-selected="true">Pending</a>
+    <a class="nav-link" id="nav-active-tab" data-toggle="tab" href="#nav-active" role="tab" aria-controls="nav-active" aria-selected="false">Active</a>
+    <a class="nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">History</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
+    <div class="received-request">
+      <% @requests_received.each do |request| %>
+        <!-- this is the card contents
+        cover image is request.user_book.book.cover
+        user is request.user -->
+      <% end %>
+
     </div>
-    <div class="col-9">
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-received" role="tabpanel" aria-labelledby="v-pills-received-tab">
-          <h1>received</h1>
-          <% @requests_received.each do |request| %>
-            <%= puts request %>
-          <% end %>
-        </div>
-        <div class="tab-pane fade" id="v-pills-made" role="tabpanel" aria-labelledby="v-pills-made-tab">
-          <h1>made</h1>
-          <% @requests_made.each do |request| %>
-            <%= puts request %>
-          <% end %>
-        </div>
-        <div class="tab-pane fade" id="v-pills-active" role="tabpanel" aria-labelledby="v-pills-active-tab">
-          <h1>active</h1>
-          <% @requests_active.each do |request| %>
-            <%= puts request %>
-          <% end %>
-        </div>
-      </div>
+    <div class="sent-request">
+      <% @requests_received.each do |request| %>
+        <!-- this is the card contents
+        cover image is request.user_book.book.cover
+        user is request.user -->
+      <% end %>
     </div>
   </div>
+  <div class="tab-pane fade" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
+    <% @requests_active.each do |active| %>
+      <!-- there's nothing coming in here yet, waiting for the new model it will still be the same index card though -->
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">...</div>
 </div>
