@@ -19,6 +19,7 @@ class UserBooksController < ApplicationController
     @user_book = policy_scope(UserBook).find(params[:id])
     @user = @user_book.user
     authorize @user_book
+    @request = Request.new
   end
 
   # def new
