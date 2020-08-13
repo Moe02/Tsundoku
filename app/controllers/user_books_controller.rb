@@ -4,17 +4,8 @@ class UserBooksController < ApplicationController
       # this guy will be ordered by distance eventually
       @user_books = policy_scope(UserBook)
     else
-      books = Book.where("title ILIKE '%#{params[:search].downcase}%'")
-      # raise
-      @temp_user_books = policy_scope(UserBook)
-      @user_books = []
-      @temp_user_books.each do |book|
-        if books.include?(book)
-          @user_books << book
-        end
-      end
+      @user_books = policy_scope(UserBook).global_search(params[:search])
     end
-    @user_books
   end
 
   def show
