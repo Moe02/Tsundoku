@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-received-tab" data-toggle="pill" href="#v-pills-received" role="tab" aria-controls="v-pills-received" aria-selected="true">Received</a>
+        <a class="nav-link" id="v-pills-made-tab" data-toggle="pill" href="#v-pills-made" role="tab" aria-controls="v-pills-made" aria-selected="false">Made</a>
+        <a class="nav-link" id="v-pills-active-tab" data-toggle="pill" href="#v-pills-active" role="tab" aria-controls="v-pills-active" aria-selected="false">Active</a>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-received" role="tabpanel" aria-labelledby="v-pills-received-tab">
+          <h1>received</h1>
+          <% @requests_received.each do |request| %>
+            <%= puts request %>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-made" role="tabpanel" aria-labelledby="v-pills-made-tab">
+          <h1>made</h1>
+          <% @requests_made.each do |request| %>
+            <%= puts request %>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-active" role="tabpanel" aria-labelledby="v-pills-active-tab">
+          <h1>active</h1>
+          <% @requests_active.each do |request| %>
+            <%= puts request %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
