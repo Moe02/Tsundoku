@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'user_books/:id/bookshelf', to: 'user_books#bookshelf', as: 'bookshelf'
 
-  resources :user_books, only: [:index, :show]
+  resources :user_books, only: [:index, :show] do
+    resources :requests, only: [:create]
+  end
   # do
   #   resources :user_books, only: [:index, :show]
   # do
