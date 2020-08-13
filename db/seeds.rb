@@ -8,7 +8,7 @@
 require 'open-uri'
 require 'json'
 
-isbns = ['0451526538', '0345250761', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
+isbns = ['0451526538', '2207109089', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
 
 
 puts "Cleaning User Book DB..."
@@ -31,6 +31,7 @@ isbns.each do |isbn|
       keywords << hash["name"]
     end
   end
+
   next unless cover.present?
     Book.create!(
     title: book_hash["title"],
