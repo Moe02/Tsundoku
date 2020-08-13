@@ -25,6 +25,7 @@ isbns.each do |isbn|
   book_raw_data = open(url).read
   book_raw_hash = JSON.parse(book_raw_data)
   book_hash = book_raw_hash["ISBN:#{isbn}"]
+  next unless book_hash
   book_hash["cover"] ? cover = book_hash["cover"]["large"] : cover = ""
   keywords = []
   if book_hash["subjects"]
