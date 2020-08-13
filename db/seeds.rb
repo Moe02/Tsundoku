@@ -8,12 +8,13 @@
 require 'open-uri'
 require 'json'
 
-isbns = ['0451526538', '0345250761', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
+isbns = ['0451526538', '2207109089', '0307386457', '0002008408', '0755392620', '0375420525', '0099528487']
 
-
-puts "Cleaning User Book DB..."
+puts "Cleaning requests..."
+Request.destroy_all
+puts "Cleaning User Books..."
 UserBook.destroy_all
-puts "Cleaning book DB..."
+puts "Cleaning books..."
 Book.destroy_all
 puts "Cleaning users..."
 User.destroy_all
@@ -31,6 +32,7 @@ isbns.each do |isbn|
       keywords << hash["name"]
     end
   end
+
   next unless cover.present?
     Book.create!(
     title: book_hash["title"],
@@ -74,7 +76,6 @@ end
 puts "#{User.count} Users created."
 
 puts "Creating example user books..."
-
 users = User.all
 books = Book.all
 users.each do |user|
@@ -85,7 +86,9 @@ users.each do |user|
     )
   end
 end
-
 puts "#{UserBook.count} user books created."
+
+puts "Generating requests"
+
 
 puts "Seed complete!"

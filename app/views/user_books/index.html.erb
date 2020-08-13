@@ -17,8 +17,8 @@
             <img src="<%= user_book.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : user_book.book.cover %>">
             <div class="card-trip-infos">
               <div>
-                <p>Title: <%= link_to user_book.book.title, user_book_path(user_book) %></p>
-                <p>Author: <%= user_book.book.author %></p>
+                <p><%= link_to user_book.book.title, user_book_path(user_book) %></p>
+                <p><%= user_book.book.author %></p>
               </div>
               <h2 class="card-trip-pricing"><%= user_book.user.username %></h2>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
