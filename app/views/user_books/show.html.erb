@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col">
       <div class="card-product">
-        <div class="coverImg"><img src= "<%= @user_book.book.cover %>" alt="img" class="img-thumbnail"></div>
+        <div class="coverImg"><%= image_tag @user_book.book.cover, class: "img-thumbnail" %></div>
           <div class="card-product-infos">
             <h1><%= @user_book.book.title %></h1>
             <p><%= @user_book.book.author %></p>
-            <h2>Neibor contact information</h2>
-            <p><%= @user.email %></p>
+            <h2>Neighbor contact information</h2>
+            <p><%= @user.username %></p>
             <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-lg" %> 
             <%= link_to "Borrow", user_books_path, class: "btn btn-warning btn-pill btn-lg" %></p>
           </div>

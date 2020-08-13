@@ -54,13 +54,12 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
-  width: 500px;
+  width: 100%;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+  height: 300px;
+  width: 100%;
 }
 
 .card-product h2 {
@@ -79,4 +78,6 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  flex-grow: 1;
+  width: 100%;
 }
