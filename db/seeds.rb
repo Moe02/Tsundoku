@@ -44,21 +44,21 @@ puts "#{Book.count} books created."
 puts "Creating new users..."
 
 User.create!(
-    email: rob@caramail.com,
+    email: "rob@caramail.com",
     password: "password",
-    username: rob
+    username: "rob"
   )
 
 User.create!(
-    email: veronica@caramail.com,
+    email: "veronica@caramail.com",
     password: "password",
-    username: veronica
+    username: "veronica"
   )
 
 User.create!(
-    email: moe@caramail.com,
+    email: "moe@caramail.com",
     password: "password",
-    username: moe
+    username: "moe"
   )
 
 
