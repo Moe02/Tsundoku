@@ -12,13 +12,13 @@
         <div class="tab-pane fade show active" id="v-pills-received" role="tabpanel" aria-labelledby="v-pills-received-tab">
           <h1>received</h1>
           <% @requests_received.each do |request| %>
-            <%= puts request %>
+            <%= puts request.book.title %>
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-made" role="tabpanel" aria-labelledby="v-pills-made-tab">
           <h1>made</h1>
           <% @requests_made.each do |request| %>
-            <%= puts request %>
+            <%= request.user_book.book.title %>
           <% end %>
         </div>
         <div class="tab-pane fade" id="v-pills-active" role="tabpanel" aria-labelledby="v-pills-active-tab">

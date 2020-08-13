@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_books
   has_many :books, through: :user_books
+  has_many :requests_made, class_name: "Request"
+  has_many :requests_received, through: :user_books, source: :requests
   # validates :address, presence: true
 
   geocoded_by :address
