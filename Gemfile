@@ -31,6 +31,7 @@ gem 'devise'
 gem 'pundit'
 gem 'faker'
 gem 'geocoder'
+gem 'pg_search', '~> 2.3.0'
 
 
 # Reduces boot times through caching; required in config/boot.rb

@@ -1,6 +1,11 @@
 class UserBooksController < ApplicationController
   def index
-    @user_books = policy_scope(UserBook)
+    if params[:search].blank?
+      # this guy will be ordered by distance eventually
+      @user_books = policy_scope(UserBook)
+    else
+      @user_books = policy_scope(UserBook).global_search(params[:search])
+    end
   end
   # one user's bookshelf
   def bookshelf
@@ -15,7 +20,6 @@ class UserBooksController < ApplicationController
     @user = @user_book.user
     authorize @user_book
   end
-
 
   # def new
   # end
