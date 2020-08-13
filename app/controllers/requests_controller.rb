@@ -5,6 +5,7 @@ class RequestsController < ApplicationController
     @request.user_book = @user_book
     @user = current_user
     @request.user = @user
+    authorize @request
     if @request.save
       redirect_to dashboard_path, notice: "Sent request successfully"
     else
