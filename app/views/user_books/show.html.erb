@@ -1,11 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1><%= @user_book.book.title %></h1>
-      <p><%= @user_book.book.author %></p>
-      <h2>Neibor contact information</h2>
-      <p><%= @user.email %></p>
-      <p><%= link_to 'Back to list', user_books_path %></p>
+      <div class="card-product">
+        <div class="coverImg"><%= image_tag @user_book.book.cover, class: "img-thumbnail" %></div>
+          <div class="card-product-infos">
+            <h1><%= @user_book.book.title %></h1>
+            <p><%= @user_book.book.author %></p>
+            <h2>Neighbor contact information</h2>
+            <p><%= @user.username %></p>
+            <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-lg" %> 
+            <%= link_to "Borrow", user_books_path, class: "btn btn-warning btn-pill btn-lg" %></p>
+          </div>
+      </div>
     </div>
   </div>
 </div>

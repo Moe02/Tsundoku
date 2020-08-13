@@ -42,6 +42,26 @@ end
 puts "#{Book.count} books created."
 
 puts "Creating new users..."
+
+User.create!(
+    email: rob@caramail.com,
+    password: "password",
+    username: rob
+  )
+
+User.create!(
+    email: veronica@caramail.com,
+    password: "password",
+    username: veronica
+  )
+
+User.create!(
+    email: moe@caramail.com,
+    password: "password",
+    username: moe
+  )
+
+
 5.times do
   User.create!(
     email: Faker::Internet.email,
