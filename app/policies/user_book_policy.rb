@@ -12,4 +12,8 @@ class UserBookPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def bookshelf?
+    true
+  end
 end

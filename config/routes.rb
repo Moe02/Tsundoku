@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get 'user_books/:id/bookshelf', to: 'user_books#bookshelf', as: 'bookshelf'
+
   resources :user_books, only: [:index, :show]
   # do
   #   resources :user_books, only: [:index, :show]

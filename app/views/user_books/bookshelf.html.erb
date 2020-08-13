@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= @user.username%>'s bookshelf</h1>
+      <% @user_books.each do |user_book| %>
+      <div class="coverImg"><img src= "<%= user_book.book.cover %>" alt="img" class="img-thumbnail"></div>
+      <p>Title: <%= user_book.book.title %></p>
+      <p>Author: <%= user_book.book.author %></p>
+      <% end %>
+      <h2>Contact <%= @user.username%>?</h2>
+      <p>Email: <%= @user.email %></p>
+      <p><%= link_to 'Back to list', user_books_path %></p>
+    </div>
+  </div>
+</div>
+
