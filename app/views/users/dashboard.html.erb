@@ -9,6 +9,17 @@
   <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
     <div class="received-request">
       <% @requests_received.each do |request| %>
+        <div class="card-trip">
+            <img src="<%= request.user_book.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : user_book.book.cover %>">
+            <div class="card-trip-infos">
+              <div>
+                <p><%= link_to user_book.book.title, user_book_path(user_book) %></p>
+                <p><%= user_book.book.author %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= request.user %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
         <!-- this is the card contents
         cover image is request.user_book.book.cover
         user is request.user -->
@@ -16,9 +27,17 @@
 
     </div>
     <div class="sent-request">
-      <% @requests_made.each do |request| %>
-        <!-- this is the card contents
-        cover image is request.user_book.book.cover -->
+      <% @requests_received.each do |request| %>
+          <img src="<%= sent_request.user_book.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : user_book.book.cover %>">
+            <div class="card-trip-infos">
+              <div>
+                <p><%= link_to user_book.book.title, user_book_path(user_book) %></p>
+                <p><%= user_book.book.author %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= sent_request.user %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>        
       <% end %>
     </div>
   </div>
