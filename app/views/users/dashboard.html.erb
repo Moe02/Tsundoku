@@ -50,14 +50,36 @@
     <!-- ACTIVE TAB -->
 
     <div class="tab-pane fade" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
-      <div class="borrowed-books">
+      <div class="borrowed-books cards my-5">
+        <h2>Borrowed Books</h2>
         <% @borrowed.each do |request| %>
-          <%= request.id %>
+          <div class="card-trip">
+            <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
+            <div class="card-trip-infos">
+              <div>
+                <p><%= request.book.title %></p>
+                <p><%= request.book.author %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= request.user_book.user.username %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
         <% end %>
       </div>
-      <div class="loaned-books">
+      <div class="loaned-books cards my-5">
+        <h2>Books on Loan</h2>
         <% @loaned.each do |request| %>
-          <%= request.id %>
+          <div class="card-trip">
+            <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
+            <div class="card-trip-infos">
+              <div>
+                <p><%= request.book.title %></p>
+                <p><%= request.book.author %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= request.user_book.user.username %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
@@ -65,9 +87,21 @@
     <!-- HISTORY -->
 
     <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-      <% @history.each do |request| %>
-        <%= request.id %>
-      <% end %>
+      <div class="cards my-5">
+        <% @history.each do |request| %>
+          <div class="card-trip">
+              <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
+              <div class="card-trip-infos">
+                <div>
+                  <p><%= request.book.title %></p>
+                  <p><%= request.book.author %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= request.user_book.user.username %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
