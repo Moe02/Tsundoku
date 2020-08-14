@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
+.cards-bookshelf {
+  display: flex;
+  overflow-x: scroll;
+}
 
 .card-user-book {
   background-size: cover;
@@ -88,9 +92,19 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
+.card-bookshelf {
+  min-width: 350px;
+  .coverImg {
+    height: 500px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 .card-trip > img {
-  height: 300px;
+  height: 500px;
   width: 100%;
   object-fit: cover;
 }
