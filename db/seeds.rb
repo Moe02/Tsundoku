@@ -94,8 +94,8 @@ userbooks = UserBook.all
 users.each do |user|
   rand(5..15).times do
     Request.create!(
-      user_id: user.id,
-      user_book_id: userbooks.sample.id,
+      user: user,
+      user_book: userbooks.sample,
       status: ["pending", "active", "history"].sample
     )
   end
