@@ -10,33 +10,40 @@
     <!-- PENDING TAB -->
 
     <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
-      <div class="received-request">
-        <% @requests_received.each do |request| %>
-          <div class="card-trip">
-            <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
-            <div class="card-trip-infos">
-              <div>
-                <p><%= request.book.title %></p>
-                <p><%= request.book.author %></p>
-              </div>
-              <h2 class="card-trip-pricing"><%= request.user.username %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          <p>RECIEVED REQUEST</p>
+            <div class="received-request">
+              <% @requests_received.each do |request| %>
+                  <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
+                  <div class="card-trip-infos">
+                    <div>
+                      <p><%= request.book.title %></p>
+                      <p><%= request.book.author %></p>
+                    </div>
+                    <h2 class="card-trip-pricing"><%= request.user.username %></h2>
+                    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+                  </div>
+              <% end %>
+            </div>
+            <p>=========================================================================================================================</p>
+            <p> SENT REQUEST</p>
+            <div class="sent-request">
+              <% @requests_made.each do |request| %>
+                <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
+                <div class="card-trip-infos">
+                  <div>
+                    <p><%= request.book.title %></p>
+                    <p><%= request.book.author %></p>
+                  </div>
+                  <h2 class="card-trip-pricing"><%= request.user_book.user.username %></h2>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="sent-request">
-        <% @requests_made.each do |request| %>
-          <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
-          <div class="card-trip-infos">
-            <div>
-              <p><%= request.book.title %></p>
-              <p><%= request.book.author %></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= request.user_book.user.username %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
 
