@@ -2,20 +2,14 @@
   <div class="row">
     <div class="col">
       <h3><%= @user.username%>'s bookshelf</h1>
-      <div class="cards">
+      <div class="cards cards-bookshelf">
         <% @user_books.each do |user_book| %>
-          <div class="card-trip">
-            <div class="coverImg"><%= image_tag @user_book.book.cover, class: "img-thumbnail" %></div>
-              <div class="card-trip-infos">
-              <p><%= user_book.book.title %></p>
-              <p><%= user_book.book.author %></p>
-              </div>
-          </div>
+          <%= render "user_books/card", user_book: user_book %>
         <% end %>
       </div>
               <h2>Contact <%= @user.username%>?</h2>
               <p>Email: <%= @user.email %></p>
-              <p><%= link_to 'Back to list', user_books_path %></p>
+              <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-sm"%></p>
     </div>
   </div>
 </div>
