@@ -90,6 +90,17 @@ end
 puts "#{UserBook.count} user books created."
 
 puts "Generating requests"
+userbooks = UserBook.all
+users.each do |user|
+  rand(5..15).times do
+    Request.create!(
+      user_id: user.id,
+      user_book_id: userbooks.sample.id,
+      status: ["pending", "active", "history"].sample
+    )
+  end
+end
+puts "#{Request.count} requests created."
 
 
 puts "Seed complete!"
