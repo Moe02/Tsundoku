@@ -20,7 +20,7 @@
                 <p><%= link_to user_book.book.title, user_book_path(user_book) %></p>
                 <p><%= user_book.book.author %></p>
               </div>
-              <h2 class="card-trip-pricing"><%= user_book.user.username %></h2>
+              <h2 class="card-trip-pricing"><%= link_to user_book.user.username, bookshelf_path(user_book) %></h2>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
           </div>
