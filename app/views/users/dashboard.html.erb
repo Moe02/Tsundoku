@@ -10,21 +10,9 @@
     <!-- PENDING TAB -->
 
     <div class="tab-pane fade show active" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab">
-
-
-      <div class="container">
-        <div class="row">
-          <div class="col">
-          <p>RECIEVED REQUEST</p>
             <div class="received-request">
               <% @requests_received.each do |request| %>
-                  <img src="<%= request.book.cover.empty? ? 'https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg' : request.book.cover %>">
-                  <div class="card-trip-infos">
-                    <div>
-                      <p><%= request.book.title %></p>
-                      <p><%= request.book.author %></p>
-                    </div>
-                  </div>
+                  <%= render 'user_books/card-product', user_book: request.user_book, request: request %>
               <% end %>
             </div>
             <p>=========================================================================================================================</p>
