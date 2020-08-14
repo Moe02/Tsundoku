@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h3><%= @user.username%>'s bookshelf</h1>
+      <h1><%= @user.username%>'s bookshelf</h1>
       <div class="cards cards-bookshelf">
         <% @user_books.each do |user_book| %>
           <%= render "user_books/card", user_book: user_book %>
