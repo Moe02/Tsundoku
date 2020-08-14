@@ -1,15 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card-product">
-        <div class="coverImg"><%= image_tag @user_book.book.cover, class: "img-thumbnail" %></div>
-          <div class="card-product-infos">
-            <h1><%= @user_book.book.title %></h1>
-            <p><%= @user_book.book.author %></p>
-            <h2>Neighbor contact information</h2>
-            <p><%= @user.username %></p>
-          </div>
-      </div>
+      <%= render 'card-product', user_book: @user_book, request: nil  %>
       <div class="my-3">
         <h3>Borrow period</h3>
         <%= simple_form_for [ @user_book, @request ] do |f| %>
@@ -18,7 +10,7 @@
         </div>
         <% end %>
       </div>
-            <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-sm" %></p>
+      <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-sm" %></p>
     </div>
   </div>
 </div>
