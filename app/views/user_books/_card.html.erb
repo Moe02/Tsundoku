@@ -1,9 +1,11 @@
-<div class="card-trip card-bookshelf">
-  <div class="coverImg">
-    <%= image_tag user_book.book.cover, class: "img-thumbnail" %>
+<%= link_to user_book_path(user_book) do %>
+  <div class="card-trip card-bookshelf">
+    <div class="coverImg">
+      <%= image_tag user_book.book.cover, class: "img-thumbnail" %>
+    </div>
+    <div class="card-trip-infos">
+      <strong><%= user_book.book.title %></strong>
+      <p><%= user_book.book.author %></p>
+    </div>
   </div>
-  <div class="card-trip-infos">
-    <p><%= user_book.book.title %></p>
-    <p><%= user_book.book.author %></p>
-  </div>
-</div>
+<% end %>
