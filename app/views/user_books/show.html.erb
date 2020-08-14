@@ -8,17 +8,17 @@
             <p><%= @user_book.book.author %></p>
             <h2>Neighbor contact information</h2>
             <p><%= @user.username %></p>
-            <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-lg" %></p>
           </div>
       </div>
       <div class="my-3">
-        <h3>Want to read this book?</h3>
+        <h3>Borrow period</h3>
         <%= simple_form_for [ @user_book, @request ] do |f| %>
         <div class="form-inline">
-          <%= f.input :start_date, html5: true %><%= f.input :end_date, html5: true %><%= f.submit "Send request", class: "btn btn-warning" %>
+          <%= f.input :start_date, html5: true %><%= f.input :end_date, html5: true %><%= f.submit "request", class: "btn btn-warning btn-pill" %>
         </div>
         <% end %>
       </div>
+            <p><%= link_to 'Back to list', user_books_path, class: "btn btn-warning btn-pill btn-sm" %></p>
     </div>
   </div>
 </div>
